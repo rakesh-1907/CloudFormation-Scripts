@@ -1,0 +1,23 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "FirstEc2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-0c85e22f0829284aa",
+        "InstanceType": "t2.micro",
+        "AvailabilityZone": "ap-southeast-1a",
+        "SubnetId": "subnet-0e8faf17b461fa0ae",
+        "KeyName": "Singapore_mac_key",
+        "SecurityGroupIds": ["sg-00abd561909c27b50"],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Test Server"
+          }
+        ]
+      }
+    }
+  }
+}
+

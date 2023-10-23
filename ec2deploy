@@ -1,0 +1,23 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "FirstEc2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-03d294e37a4820c21",
+        "InstanceType": "t2.micro",
+        "AvailabilityZone": "ap-south-1c",
+        "SubnetId": "subnet-071634a569af7e9ea",
+        "KeyName" : "New_Mac_Key",
+        "SecurityGroupIds" : ["sg-0b29c055cc190ba3b"],
+        "Tags":[
+           {
+             "Key": "Name",
+             "Value": "Gaming Server"
+          }
+       ]
+     }
+    }
+  }
+}
+

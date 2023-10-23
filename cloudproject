@@ -1,0 +1,48 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Create my first VPC, Subnet & Instance",
+  "Resources": {
+    "ProdVPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.100.0.0/16"
+      }
+    },
+    "WebSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "ProdVPC"
+        },
+        "CidrBlock": "10.100.0.0/24"
+      }
+    },
+    "DBSubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "ProdVPC"
+        },
+        "CidrBlock": "10.100.1.0/24"
+      }
+    },
+    "WebServer": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-099b3d23e336c2e83",
+        "SubnetId": {
+          "Ref": "WebSubnet"
+        },
+        "InstanceType": "t2.micro",
+        "KeyName": "New_Mac_Key",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Web-Server"
+          }
+        ]
+      }
+    }
+  }
+}
+
